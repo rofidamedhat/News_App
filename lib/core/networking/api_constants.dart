@@ -1,5 +1,10 @@
 class ApiConstants {
-  static const String apiBaseUrl = "https://newsapi.org/";
+  static const String apiBaseUrl = "https://newsapi.org/v2/";
+  
+  
+  static const String homeEP = "top-headlines?country=us&apiKey=48af530bd5ee4fe8b501b11e8b889a81";
+
+  
 }
 
 class ApiErrors {
