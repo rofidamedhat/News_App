@@ -1,17 +1,10 @@
-import 'api_error_model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:news_app/core/networking/api_error_handler.dart';
 
-abstract class ApiResult<T> {
-  const ApiResult();
-  const factory ApiResult.success(T data) = Success<T>;
-  const factory ApiResult.failure(ApiErrorModel apiErrorModel) = Failure<T>;
-}
+part 'api_result.freezed.dart';
 
-class Success<T> extends ApiResult<T> {
-  final T data;
-  const Success(this.data);
-}
-
-class Failure<T> extends ApiResult<T> {
-  final ApiErrorModel apiErrorModel;
-  const Failure(this.apiErrorModel);
+@Freezed()
+abstract class ApiResults<T> with _$ApiResults<T> {
+  const factory ApiResults.success(T data) = Success<T>;
+  const factory ApiResults.failure(ErrorHandler errorHandler) = Failure<T>;
 }
